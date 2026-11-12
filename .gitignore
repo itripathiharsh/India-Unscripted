@@ -1,0 +1,37 @@
+# Dependencies & Environment
+node_modules/
+.venv/
+venv/
+
+# Vercel & Platform Metadata
+.vercel/
+.cache/
+
+# Test, Verification & Scratch Scripts
+*.mjs
+!render-video.mjs
+check_*.js
+curation_audit.*
+download*.js
+fetch_*.js
+test-*.html
+flow_gallery.html
+curation_audit.html
+page.html
+
+# Screenshots & Visual Audit Dumps
+screenshots/
+preview_*.png
+after_send.png
+flow_screen.png
+
+# Intermediate / Unreferenced Geo Dumps
+assets/flow_dump/
+assets/india_geo.json
+assets/india_generated_map.svg
+assets/india_optimized_paths.txt
+
+# System & Log Files
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="35%" stop-color="#d4af37" />
+      <stop offset="70%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4af37" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#d4af37" stop-opacity="0" />
+    </radialGradient>
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="60" cy="60" r="54" fill="url(#glowGrad)" />
+
+  <!-- Outer Astrolabe Ring -->
+  <circle cx="60" cy="60" r="52" stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="2 4" opacity="0.6" />
+  <circle cx="60" cy="60" r="48" stroke="url(#goldGrad)" stroke-width="1.5" />
+  <circle cx="60" cy="60" r="44" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.5" />
+
+  <!-- Cardinal Astrolabe Ticks -->
+  <line x1="60" y1="6" x2="60" y2="14" stroke="url(#goldGrad)" stroke-width="2" />
+  <line x1="60" y1="106" x2="60" y2="114" stroke="url(#goldGrad)" stroke-width="2" />
+  <line x1="6" y1="60" x2="14" y2="60" stroke="url(#goldGrad)" stroke-width="2" />
+  <line x1="106" y1="60" x2="114" y2="60" stroke="url(#goldGrad)" stroke-width="2" />
+
+  <!-- 8-Pointed Celestial Star / Mandala -->
+  <g transform="translate(60,60)">
+    <!-- Diagonal Spikes -->
+    <path d="M0 -38 L4 -12 L0 -6 L-4 -12 Z" fill="url(#goldGrad)" />
+    <path d="M0 38 L4 12 L0 6 L-4 12 Z" fill="url(#goldGrad)" />
+    <path d="M-38 0 L-12 4 L-6 0 L-12 -4 Z" fill="url(#goldGrad)" />
+    <path d="M38 0 L12 4 L6 0 L12 -4 Z" fill="url(#goldGrad)" />
+
+    <!-- 45-degree Star Spikes -->
+    <g transform="rotate(45)">
+      <path d="M0 -30 L3 -10 L0 -5 L-3 -10 Z" fill="url(#goldGrad)" opacity="0.85" />
+      <path d="M0 30 L3 10 L0 5 L-3 10 Z" fill="url(#goldGrad)" opacity="0.85" />
+      <path d="M-30 0 L-10 3 L-5 0 L-10 -3 Z" fill="url(#goldGrad)" opacity="0.85" />
+      <path d="M30 0 L10 3 L5 0 L10 -3 Z" fill="url(#goldGrad)" opacity="0.85" />
+    </g>
+
+    <!-- Geometric Lotus Petals -->
+    <g stroke="url(#goldGrad)" stroke-width="1.2" fill="none" opacity="0.75">
+      <path d="M0,-24 C6,-12 18,-6 24,0 C18,6 6,12 0,24 C-6,12 -18,6 -24,0 C-18,-6 -6,-12 0,-24 Z" />
+    </g>
+
+    <!-- Inner Core Sanctuary Ring -->
+    <circle cx="0" cy="0" r="10" stroke="url(#goldGrad)" stroke-width="1.5" fill="#08090c" />
+    <circle cx="0" cy="0" r="4" fill="url(#goldGrad)" filter="url(#goldGlow)" />
+  </g>
+</svg>
+

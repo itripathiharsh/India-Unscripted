@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curate Your Route — Expedition Consultation · India Unscripted</title>
+  <meta name="description"
+    content="Personalize your India journey: guest profile, expedition themes, curated sanctuaries, and tailored tempo. Generate a day-by-day subcontinent route.">
+  <meta property="og:site_name" content="India Unscripted">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#08090c">
+  <meta property="og:title" content="Curate Your Route — Expedition Consultation · India Unscripted">
+  <meta property="og:description"
+    content="Personalize your India journey: guest profile, expedition themes, curated sanctuaries, and tailored tempo. Generate a day-by-day subcontinent route.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/unscripted.css">
+</head>
+
+<body data-page="plan">
+
+  <header id="siteHeader"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">Personalized Expedition Consultation</span>
+        <h1>Curate Your Bespoke Route</h1>
+        <p>Every itinerary is engineered around your specific rhythm, cultural interests, and travel companions. Complete these five points to generate a day-by-day route blueprint.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <!-- ============ WIZARD ============ -->
+        <div class="wizard-shell" id="wizardShell">
+          <div class="stepper">
+            <div class="step-dot active" data-step="1"><span class="dot">01</span><span class="lbl">Guest Profile</span></div>
+            <div class="step-dot" data-step="2"><span class="dot">02</span><span class="lbl">Themes</span></div>
+            <div class="step-dot" data-step="3"><span class="dot">03</span><span class="lbl">Sanctuaries</span></div>
+            <div class="step-dot" data-step="4"><span class="dot">04</span><span class="lbl">Expedition Style</span></div>
+            <div class="step-dot" data-step="5"><span class="dot">05</span><span class="lbl">Dossier Review</span></div>
+          </div>
+
+          <!-- STEP 1: about you -->
+          <div class="step-panel active" id="panel1">
+            <h2>Guest Profile &amp; Window</h2>
+            <p class="hint">We engineer your route around travel party dynamics, optimal pacing, and private arrival logistics.</p>
+            <div class="field-row">
+              <div class="field">
+                <label for="fName">Full Name</label>
+                <input type="text" id="fName" placeholder="e.g. Sarah Williams" autocomplete="name">
+                <div class="err">Please provide your full name</div>
+              </div>
+              <div class="field">
+                <label for="fEmail">Email <small>(Expedition dossier dispatched here)</small></label>
+                <input type="email" id="fEmail" placeholder="sarah@example.com" autocomplete="email">
+                <div class="err">Valid email address required</div>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="fCountry">Country of Residence</label>
+                <select id="fCountry">
+                  <option value="">Select country...</option>
+                </select>
+                <div class="err">Please indicate your country for flight &amp; visa guidance</div>
+              </div>
+              <div class="field">
+                <label for="fTravelers">Expedition Party Size</label>
+                <input type="number" id="fTravelers" min="1" max="30" value="2">
+                <div class="err">Between 1 and 30 travelers</div>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="fDate">Target Arrival Date <small>(Flexible window is welcomed)</small></label>
+                <input type="date" id="fDate">
+                <div class="err">Arrival date cannot be in the past</div>
+              </div>
+              <div class="field">
+                <label for="fNights">Expedition Length <small>(Nights in India)</small></label>
+                <input type="number" id="fNights" min="3" max="90" value="14">
+                <div class="err">Between 3 and 90 nights</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: interests -->
+          <div class="step-panel" id="panel2">
+            <h2>Expedition Themes &amp; Passions</h2>
+            <p class="hint">Select the cultural disciplines and landscape horizons that define your ideal subcontinent exploration.</p>
+            <div class="chip-group" id="interestChips"></div>
+          </div>
+
+          <!-- STEP 3: places -->
+          <div class="step-panel" id="panel3">
+            <h2>Curate Your Sanctuaries</h2>
+            <p class="hint" id="placesCount"></p>
+            <div class="filter-row" style="margin-bottom:18px">
+              <button class="btn btn-primary btn-sm" id="addRecommended">Include Recommended Matches</button>
+              <button class="btn btn-ghost btn-sm" id="clearPicks">Reset Selections</button>
+              <a class='btn btn-ghost btn-sm' href='explore.html'>Browse All 43 Sanctuaries &rarr;</a>
+            </div>
+            <div class="grid-cards" id="placesGrid"></div>
+          </div>
+
+          <!-- STEP 4: style -->
+          <div class="step-panel" id="panel4">
+            <h2>Expedition Tempo &amp; Heritage Tier</h2>
+            <p class="hint">Tempo dictates daily itinerary density. Heritage tier defines our selection of palace sanctuaries and private havelis.</p>
+            <div class="field">
+              <label>Expedition Tempo</label>
+              <div class="option-grid">
+                <label class="option-card">
+                  <input type="radio" name="pace" value="relaxed">
+                  <span class="oc-title">Unhurried Pace</span>
+                  <span class="oc-sub">2 immersive experiences daily, long lunches, tranquil afternoons</span>
+                </label>
+                <label class="option-card selected">
+                  <input type="radio" name="pace" value="balanced" checked>
+                  <span class="oc-title">Measured Tempo</span>
+                  <span class="oc-sub">3 curated excursions daily with freedom to explore off-script</span>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="pace" value="packed">
+                  <span class="oc-title">Dynamic Cadence</span>
+                  <span class="oc-sub">4 active highlights daily — comprehensive deep-dive exploration</span>
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <label>Sanctuary &amp; Heritage Tier</label>
+              <div class="option-grid">
+                <label class="option-card">
+                  <input type="radio" name="budget" value="value">
+                  <span class="oc-title">Boutique &amp; Heritage</span>
+                  <span class="oc-sub">Characterful heritage stays, private rooms, authentic local dining</span>
+                </label>
+                <label class="option-card selected">
+                  <input type="radio" name="budget" value="comfort" checked>
+                  <span class="oc-title">Luxury Haveli &amp; Palaces</span>
+                  <span class="oc-sub">Historic 5-star palace hotels, dedicated private car &amp; chauffeur</span>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="budget" value="luxury">
+                  <span class="oc-title">Royal Sanctuaries &amp; Estates</span>
+                  <span class="oc-sub">Exclusive palace suites, Oberoi &amp; Taj properties, personal valet</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: review -->
+          <div class="step-panel" id="panel5">
+            <h2>Review Expedition Dossier</h2>
+            <p class="hint">Verify your party credentials and curated destinations before we compile your day-by-day expedition route.</p>
+            <div id="reviewSummary"></div>
+          </div>
+
+          <div class="wizard-actions">
+            <button class="btn btn-ghost" id="backBtn" style="visibility:hidden">&larr; Back</button>
+            <button class="btn btn-primary" id="nextBtn">Continue &rarr;</button>
+          </div>
+        </div>
+
+        <!-- ============ RESULTS ============ -->
+        <div id="resultsSection" style="display:none">
+          <div class="results-head">
+            <span class="eyebrow">Curated Route Blueprint</span>
+            <h2 id="resTitle">Your India Itinerary</h2>
+            <p class="meta-line" id="resMeta"></p>
+            <ul class="reasons" id="resReasons"></ul>
+            <div class="places-row" id="resPlaces"></div>
+          </div>
+          <div class="results-layout">
+            <div class="itinerary" id="itinerary"></div>
+            <aside class="estimate-card" id="estimateSide"></aside>
+          </div>
+          <p style="text-align:center;color:var(--ink-soft);font-size:13.5px;margin-top:26px">
+            This serves as your foundational expedition dossier — a Senior Expedition Architect refines every private excursion with you before reservations are locked.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/soundscape.js"></script>
+  <script src="js/motion-graphics.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/plan.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+assets/india_geo.json
+assets/india_generated_map.svg
+assets/india_optimized_paths.txt
+screenshots/
+assets/generated/*raw*
+*.mjs
+page.html
+preview_*.png
+server.js
+

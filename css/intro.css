@@ -1,0 +1,328 @@
+/* Master Intro Overlay */
+#cinematicIntro {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999999;
+  background-color: #06070a;
+  overflow: hidden;
+  font-family: 'Cinzel', serif;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cinematicIntro.finished,
+html.intro-seen #cinematicIntro {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Ambient Dust & Atmospheric Particles */
+    #particlesCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Cinematic Camera Rig */
+    #cameraRig {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .scene-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      opacity: 0;
+      will-change: opacity, transform;
+    }
+
+    /* ==========================================================
+       SCENE 1: HERITAGE SANCTUARY ARCHWAY & CARVED RELIEF
+       ========================================================== */
+    #scene1 {
+      justify-content: flex-start;
+    }
+
+    .sanctuary-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .pillar-svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: auto;
+      max-width: 50vw;
+      filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.2));
+    }
+
+    /* High-contrast Volumetric Chiaroscuro Sunbeam Rake */
+    .sunbeam-cone {
+      position: absolute;
+      left: -10vw;
+      top: -15vh;
+      width: 90vw;
+      height: 130vh;
+      background: radial-gradient(ellipse 85% 70% at 15% 35%, 
+                  rgba(254, 240, 138, 0.28) 0%, 
+                  rgba(212, 175, 55, 0.16) 28%, 
+                  rgba(180, 83, 9, 0.06) 55%, 
+                  transparent 78%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      transform: rotate(-12deg);
+    }
+
+    .scene1-text {
+      position: absolute;
+      right: 10vw;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      max-width: 46vw;
+    }
+
+    .scene1-eyebrow {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(14px, 1.8vw, 24px);
+      letter-spacing: 0.38em;
+      color: #c5a059;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      text-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+    }
+
+    .scene1-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(40px, 6.2vw, 90px);
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      color: #f8f6f0;
+      text-shadow: 0 0 35px rgba(254, 240, 138, 0.55), 0 0 80px rgba(212, 175, 55, 0.3);
+    }
+
+    /* ==========================================================
+       SCENE 2: CELESTIAL ASTROLABE COMPASS
+       ========================================================== */
+    .compass-container {
+      position: relative;
+      width: min(520px, 52vh);
+      height: min(520px, 52vh);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .compass-ambient-glow {
+      position: absolute;
+      width: 145%;
+      height: 145%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(180, 83, 9, 0.14) 45%, transparent 72%);
+      filter: blur(25px);
+    }
+
+    .astrolabe-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.5));
+    }
+
+    /* ==========================================================
+       SCENE 3: AUTHENTIC SURVEY OF INDIA SUBCONTINENT & ROUTE
+       ========================================================== */
+    .subcontinent-wrapper {
+      position: relative;
+      width: min(740px, 84vh);
+      height: min(830px, 94vh);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .subcontinent-glow-aura {
+      position: absolute;
+      width: 125%;
+      height: 125%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(146, 111, 47, 0.06) 50%, transparent 75%);
+      filter: blur(35px);
+    }
+
+    .authentic-map-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 18px rgba(197, 160, 89, 0.35));
+    }
+
+    /* ==========================================================
+       SCENE 4: BRAND IDENTITY LOCKUP
+       ========================================================== */
+    .brand-lockup-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .brand-compass-icon {
+      width: min(96px, 11vw);
+      height: min(96px, 11vw);
+      margin-bottom: 24px;
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.55));
+    }
+
+    .brand-name-india {
+      font-size: clamp(34px, 4.6vw, 70px);
+      font-weight: 700;
+      letter-spacing: 0.34em;
+      color: #f8f6f0;
+      text-shadow: 0 0 25px rgba(254, 240, 138, 0.4);
+      margin-bottom: 4px;
+    }
+
+    .brand-name-unscripted {
+      font-size: clamp(36px, 5.0vw, 78px);
+      font-weight: 700;
+      letter-spacing: 0.36em;
+      background: linear-gradient(135deg, #dfba73 0%, #fff8c5 35%, #d4af37 60%, #8a5e18 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 26px rgba(212, 175, 55, 0.6));
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .brand-tagline {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(10px, 1.0vw, 15px);
+      letter-spacing: 0.42em;
+      color: rgba(197, 160, 89, 0.95);
+      text-transform: uppercase;
+      text-shadow: 0 0 12px rgba(197, 160, 89, 0.35);
+    }
+
+    /* ==========================================================
+       SCENE 5: DAWN MOUNTAIN RIDGES & PROMISE
+       ========================================================== */
+    .dawn-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .dawn-sky-grad {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, 
+                  #06070a 0%, 
+                  #12101e 30%, 
+                  #2e150d 58%, 
+                  #6d320d 76%, 
+                  #b45309 88%, 
+                  #d4af37 96%, 
+                  #fef08a 100%);
+      opacity: 0.96;
+    }
+
+    .mountains-svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50vh;
+      pointer-events: none;
+    }
+
+    .promise-text-container {
+      position: absolute;
+      top: 38%;
+      transform: translateY(-50%);
+      text-align: center;
+      z-index: 20;
+    }
+
+    .promise-text {
+      font-size: clamp(22px, 3.2vw, 48px);
+      font-weight: 600;
+      letter-spacing: 0.38em;
+      color: #f8f6f0;
+      text-shadow: 0 0 30px rgba(254, 240, 138, 0.65), 0 0 60px rgba(212, 175, 55, 0.35);
+      margin-bottom: 22px;
+    }
+
+    .promise-rule-container {
+      position: relative;
+      width: min(240px, 32vw);
+      height: 2px;
+      margin: 0 auto;
+      background: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.65);
+    }
+
+    .promise-star {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 14px #fff, 0 0 28px #fef08a;
+    }
+
+    /* Discreet Luxury Skip button */
+    .intro-skip-btn {
+      position: absolute;
+      top: 28px;
+      right: 36px;
+      z-index: 999;
+      background: rgba(6, 7, 10, 0.6);
+      border: 1px solid rgba(197, 160, 89, 0.35);
+      color: rgba(248, 246, 240, 0.8);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      padding: 9px 18px;
+      border-radius: 2px;
+      cursor: pointer;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+    }

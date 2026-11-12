@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve Your Expedition · India Unscripted</title>
+  <meta name="description" content="Confirm your personalized India journey: review the route, add bespoke enhancements, share credentials, and reserve with a 20% deposit.">
+  <meta property="og:site_name" content="India Unscripted">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#08090c">
+  <meta property="og:title" content="Reserve Your Expedition · India Unscripted">
+  <meta property="og:description" content="Confirm your personalized India journey: review the route, add bespoke enhancements, share credentials, and reserve with a 20% deposit.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/unscripted.css">
+</head>
+<body data-page="book">
+
+  <header id="siteHeader"></header>
+
+  <main>
+  <!-- empty state when no trip -->
+  <div class="empty-state" id="emptyState" style="display:none; text-align:center; padding: 80px 20px;">
+    <div style="margin-bottom:24px;">
+      <img src="assets/logo.svg" alt="Astrolabe" width="68" height="68" style="filter: drop-shadow(0 0 20px rgba(197,160,89,0.45));">
+    </div>
+    <h2 style="font-family:var(--font-serif); font-size:2.2rem; color:#fff; margin-bottom:12px;">Your journey route is unchartered</h2>
+    <p style="color:var(--text-secondary); max-width:520px; margin:0 auto 28px; line-height:1.6;">Add living destinations from the explore catalog, or allow our Route Architect wizard to assemble a personalized itinerary tailored to your pace.</p>
+    <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <a class='btn btn-primary' href='explore.html'>Explore Sanctuaries</a>
+      <a class='btn btn-ghost' href='plan.html'>Launch Route Wizard</a>
+    </div>
+  </div>
+
+  <section id="bookSection">
+    <div class="wrap">
+      <div class="book-layout" id="bookLayout">
+        <div>
+          <!-- 1: trip -->
+          <div class="panel">
+            <h2><span class="p-num">01</span> Curated Route Dossier</h2>
+            <div id="tripSummary"></div>
+          </div>
+
+          <!-- 2: extras -->
+          <div class="panel">
+            <h2><span class="p-num">02</span> Bespoke Expedition Enhancements</h2>
+            <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:16px">
+              Flat inclusions per private party reservation. Modify anytime prior to final deposit confirmation.
+            </p>
+            <div class="extras-grid" id="extrasGrid"></div>
+          </div>
+
+          <!-- 3: details -->
+          <div class="panel">
+            <h2><span class="p-num">03</span> Lead Guest Credentials</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label for="fName">Full Name</label>
+                <input type="text" id="fName" placeholder="As formatted on passport" autocomplete="name">
+                <div class="err">Please enter your full name</div>
+              </div>
+              <div class="field">
+                <label for="fEmail">Email Address</label>
+                <input type="email" id="fEmail" placeholder="sarah@example.com" autocomplete="email">
+                <div class="err">Valid email address required</div>
+              </div>
+              <div class="field">
+                <label for="fPhone">WhatsApp / Mobile <small>(Direct Liaison Desk)</small></label>
+                <input type="tel" id="fPhone" placeholder="+1 555 000 1234" autocomplete="tel">
+                <div class="err">A reachable direct line ensures smooth on-ground transit</div>
+              </div>
+              <div class="field">
+                <label for="fCountry">Country of Residence</label>
+                <select id="fCountry">
+                  <option value="">Select country...</option>
+                </select>
+                <div class="err">Required for flight and protocol guidance</div>
+              </div>
+              <div class="field wide">
+                <label for="fArrival">Arrival Flight Details <small>(Optional — our concierge can coordinate airport transfer)</small></label>
+                <input type="text" id="fArrival" placeholder="e.g. BA 143, landing Delhi 10:35, 12 Feb">
+              </div>
+              <div class="field">
+                <label for="fDietary">Dietary Preferences</label>
+                <select id="fDietary">
+                  <option value="none">No restrictions — omnivore palate</option>
+                  <option value="vegetarian">Vegetarian</option>
+                  <option value="vegan">Vegan</option>
+                  <option value="halal">Halal</option>
+                  <option value="jain">Jain (strictly no root vegetables)</option>
+                  <option value="kosher">Kosher</option>
+                  <option value="allergies">Specific allergies (detail below)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="fMobility">Mobility &amp; Access Considerations <small>(Optional)</small></label>
+                <input type="text" id="fMobility" placeholder="e.g. avoid steep ancient fort staircases">
+              </div>
+              <div class="field wide">
+                <label for="fRequests">Special Requests &amp; Bespoke Passions</label>
+                <textarea id="fRequests" placeholder="Anniversary celebrations, private temple ceremonies, bespoke textile artisans, or culinary masterclasses. Detail anything that enriches your journey."></textarea>
+              </div>
+              <div class="field wide">
+                <label for="fEmergency">Emergency Contact <small>(Name &amp; telephone)</small></label>
+                <input type="text" id="fEmergency" placeholder="e.g. Jonathan Williams, +1 555 987 6543">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- price sidebar -->
+        <aside>
+          <div class="panel price-panel">
+            <h2 style="font-size:20px">Investment Breakdown</h2>
+            <div class="price-rows" id="priceRows"></div>
+            <p class="p-note" id="priceNote"></p>
+            <div class="terms-line">
+              <input type="checkbox" id="termsCheck">
+              <label for="termsCheck">I understand this is an expedition reservation request. A Senior Expedition Architect reviews room availability and provides final quotes prior to deposit charge.</label>
+            </div>
+            <button class="btn btn-primary" id="confirmBtn" type="button">Reserve Expedition Allocation &rarr;</button>
+            <p style="font-size:12px;color:var(--ink-soft);margin-top:12px;text-align:center">
+              Complimentary adjustments within 72 hours · 20% reservation deposit · Balance due 30 days prior
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Static Netlify Forms definition -->
+  <form hidden method='POST' name='booking-request'>
+    <input type="hidden" name="form-name" value="booking-request">
+    <input type="hidden" name="subject" value="New India trip request (%{submissionId})">
+    <input type="text" name="name"><input type="email" name="email"><input type="text" name="phone">
+    <input type="text" name="country"><input type="text" name="ref"><input type="text" name="places">
+    <input type="text" name="dates"><input type="text" name="travelers"><input type="text" name="style">
+    <input type="text" name="interests"><input type="text" name="extras"><input type="text" name="estimate">
+    <input type="text" name="deposit"><input type="text" name="arrival"><input type="text" name="dietary">
+    <input type="text" name="mobility"><input type="text" name="emergency"><textarea name="requests"></textarea>
+    <input name="bot-field">
+  </form>
+
+  <footer id="siteFooter"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/soundscape.js"></script>
+  <script src="js/motion-graphics.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/book.js"></script>
+</body>
+</html>
